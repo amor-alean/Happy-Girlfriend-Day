@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You — Happy Girlfriend Day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Happy Girlfriend Day Doctor Shahib</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fff6f8;
+            --bg-alt: #ffeef3;
+            --rose-100: #fbdce4;
+            --rose-200: #f6c6d3;
+            --rose-300: #f2aec1;
+            --rose-500: #de7e97;
+            --rose-700: #b85572;
+            --maroon: #5a2a3a;
+            --gold: #c7a76c;
+            --gold-soft: #e7d3a8;
+            --white: #fffdfd;
+            --font-display: 'Playfair Display', serif;
+            --font-script: 'Great Vibes', cursive;
+            --font-body: 'Jost', sans-serif;
+            --ease: cubic-bezier(.65, 0, .35, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--maroon);
+            background: var(--bg);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-display);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        button {
+            font-family: var(--font-body);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        ::selection {
+            background: var(--rose-300);
+            color: var(--white);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--rose-700);
+            outline-offset: 3px;
+        }
+
+        #viewport {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+        }
+
+        #pages {
+            display: flex;
+            height: 100%;
+            transition: transform .8s var(--ease);
+        }
+
+        .page {
+            min-width: 100vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6vh 6vw;
+            padding-bottom: max(12vh, 110px);
+            position: relative;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background: radial-gradient(ellipse at 30% 20%, var(--bg-alt) 0%, var(--bg) 60%);
+        }
+
+        .page:nth-child(even) {
+            background: radial-gradient(ellipse at 70% 80%, var(--bg-alt) 0%, var(--bg) 60%);
+        }
+
+        .page-inner {
+            max-width: 720px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.1rem;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .eyebrow {
+            font-size: .78rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--rose-700);
+            font-weight: 500;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            margin: .3rem 0;
+        }
+
+        .divider span {
+            width: 34px;
+            height: 1px;
+            background: var(--gold);
+            display: block;
+        }
+
+        .divider .diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            flex: none;
+        }
+
+        .script {
+            font-family: var(--font-script);
+            color: var(--rose-700);
+            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+            line-height: 1;
+        }
+
+        .brand {
+            position: fixed;
+            top: 26px;
+            left: 30px;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--rose-700);
+            letter-spacing: .02em;
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .brand .heart {
+            color: var(--rose-500);
+            font-size: .9rem;
+        }
+
+        .sound-toggle {
+            position: fixed;
+            top: 22px;
+            right: 26px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .6);
+            border: 1px solid var(--rose-100);
+            color: var(--rose-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+            transition: background .3s, color .3s;
+        }
+
+        .sound-toggle:hover {
+            background: var(--rose-500);
+            color: var(--white);
+        }
+
+        .sound-toggle svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .dot-nav {
+            position: fixed;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, .55);
+            backdrop-filter: blur(6px);
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--rose-100);
+            z-index: 30;
+            max-width: 92vw;
+            overflow-x: auto;
+        }
+
+        .dot-nav button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: .74rem;
+            letter-spacing: .05em;
+            color: var(--rose-700);
+            white-space: nowrap;
+            transition: background .3s, color .3s;
+        }
+
+        .dot-nav button .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--rose-300);
+            transition: background .3s, transform .3s;
+        }
+
+        .dot-nav button.active {
+            background: var(--rose-500);
+            color: var(--white);
+        }
+
+        .dot-nav button.active .dot {
+            background: var(--white);
+        }
+
+        .arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .6);
+            border: 1px solid var(--rose-100);
+            color: var(--rose-700);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+            transition: opacity .3s, background .3s, transform .3s;
+        }
+
+        .arrow:hover {
+            background: var(--rose-500);
+            color: var(--white);
+        }
+
+        .arrow.prev {
+            left: 22px;
+        }
+
+        .arrow.next {
+            right: 22px;
+        }
+
+        .arrow.disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 640px) {
+            .arrow {
+                display: none;
+            }
+        }
+
+        #petals {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            top: -5%;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, var(--rose-300), var(--rose-500));
+            border-radius: 0 100% 0 100%;
+            opacity: .65;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(50vh) translateX(20px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(105vh) translateX(-15px) rotate(360deg);
+            }
+        }
+
+        .cta {
+            margin-top: .6rem;
+            padding: 14px 36px;
+            border-radius: 999px;
+            background: var(--rose-700);
+            color: var(--white);
+            font-size: .85rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            transition: background .35s, transform .35s;
+            box-shadow: 0 10px 24px -8px rgba(184, 85, 114, .55);
+        }
+
+        .cta:hover {
+            background: var(--maroon);
+            transform: translateY(-2px);
+        }
+
+        .home-title {
+            font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+            font-style: italic;
+            line-height: 1.05;
+            color: var(--maroon);
+        }
+
+        .home-name {
+            color: var(--rose-700);
+        }
+
+        .photo-frame {
+            width: min(70vw, 320px);
+            aspect-ratio: 9/16;
+            border: 10px solid var(--white);
+            outline: 1px solid var(--gold-soft);
+            outline-offset: 6px;
+            box-shadow: 0 24px 50px -18px rgba(90, 42, 58, .35);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, var(--rose-100), var(--rose-200));
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            padding: 1.2rem;
+            text-align: center;
+            color: var(--rose-700);
+        }
+
+        .photo-placeholder svg {
+            width: 34px;
+            height: 34px;
+            opacity: .8;
+        }
+
+        .photo-placeholder .small {
+            font-size: .72rem;
+            color: var(--rose-700);
+            opacity: .75;
+            max-width: 220px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
+            width: 100%;
+            max-width: 720px;
+            margin-top: .5rem;
+        }
+
+        .flip-card {
+            perspective: 1200px;
+            height: 170px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform .6s var(--ease);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: .8rem;
+            text-align: center;
+        }
+
+        .card-front {
+            background: linear-gradient(160deg, var(--rose-300), var(--rose-500));
+            border: 1px solid var(--gold-soft);
+            color: var(--white);
+            gap: .4rem;
+        }
+
+        .card-front .num {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: .75rem;
+            opacity: .85;
+        }
+
+        .card-front .heart-icon {
+            font-size: 1.6rem;
+        }
+
+        .card-back {
+            background: var(--white);
+            border: 1px solid var(--rose-200);
+            transform: rotateY(180deg);
+            color: var(--maroon);
+            font-size: .82rem;
+            line-height: 1.4;
+        }
+
+        .video-frame {
+            width: min(70vw, 320px);
+            aspect-ratio: 9/16;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--rose-200);
+            box-shadow: 0 20px 44px -18px rgba(90, 42, 58, .35);
+            background: linear-gradient(135deg, var(--rose-100), var(--rose-200));
+            position: relative;
+        }
+
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #1c1114;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            padding: 1.2rem;
+            text-align: center;
+            color: var(--rose-700);
+        }
+
+        .video-placeholder svg {
+            width: 34px;
+            height: 34px;
+            opacity: .85;
+        }
+
+        .video-placeholder .small {
+            font-size: .72rem;
+            opacity: .75;
+            max-width: 240px;
+        }
+
+        .envelope-wrap {
+            position: relative;
+            width: min(84vw, 340px);
+        }
+
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 210px;
+            background: linear-gradient(160deg, var(--rose-200), var(--rose-300));
+            border-radius: 6px;
+            box-shadow: 0 20px 40px -16px rgba(90, 42, 58, .4);
+            cursor: pointer;
+            overflow: visible;
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(160deg, var(--rose-300), var(--rose-500));
+            clip-path: polygon(0 0, 100% 0, 50% 85%);
+            transform-origin: top;
+            transition: transform .7s var(--ease);
+            z-index: 3;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+
+        .seal {
+            position: absolute;
+            top: 46%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            z-index: 4;
+            box-shadow: 0 6px 14px -4px rgba(0, 0, 0, .35);
+            transition: opacity .4s;
+        }
+
+        .envelope.open .seal {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .letter-hint {
+            font-size: .7rem;
+            color: var(--rose-700);
+            opacity: .8;
+            margin-top: .7rem;
+            letter-spacing: .05em;
+        }
+
+        .letter-paper {
+            max-width: 560px;
+            background: var(--white);
+            border: 1px solid var(--rose-100);
+            border-radius: 8px;
+            padding: 2rem 1.8rem;
+            margin-top: 1.4rem;
+            box-shadow: 0 20px 50px -20px rgba(90, 42, 58, .3);
+            opacity: 0;
+            transform: translateY(18px);
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity .7s var(--ease), transform .7s var(--ease), padding .7s var(--ease), margin .7s var(--ease);
+        }
+
+        .letter-paper.show {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 1200px;
+        }
+
+        .letter-paper p {
+            font-size: .92rem;
+            line-height: 1.75;
+            margin-bottom: .9rem;
+            color: var(--maroon);
+            text-align: left;
+        }
+
+        .letter-sign {
+            font-family: var(--font-script);
+            font-size: 2rem;
+            color: var(--rose-700);
+            margin-top: .4rem;
+            text-align: right;
+        }
+
+        .love-btn {
+            margin-top: 1.4rem;
+            padding: 12px 30px;
+            border-radius: 999px;
+            border: 1px solid var(--rose-500);
+            color: var(--rose-700);
+            font-size: .78rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            transition: background .3s, color .3s;
+        }
+
+        .love-btn:hover {
+            background: var(--rose-500);
+            color: var(--white);
+        }
+
+        #burst {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 40;
+        }
+
+        .heart-pop {
+            position: absolute;
+            font-size: 1.1rem;
+            color: var(--rose-500);
+            animation: pop 1.6s ease-out forwards;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: translateY(0) scale(.6);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-140px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .petal,
+            .heart-pop {
+                animation: none !important;
+            }
+
+            #pages,
+            .card-inner,
+            .flap,
+            .letter-paper {
+                transition: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .brand {
+                font-size: .9rem;
+                top: 18px;
+                left: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flip-card {
+                height: 150px;
+            }
+
+            .cards-grid {
+                gap: 10px;
+            }
+
+            .letter-paper {
+                padding: 1.4rem 1.1rem;
+            }
+
+            .envelope {
+                height: 170px;
+            }
+
+            .photo-frame {
+                width: min(72vw, 250px);
+            }
+
+            .video-frame {
+                width: min(72vw, 250px);
+            }
+
+            .dot-nav {
+                gap: 6px;
+                padding: 7px 8px;
+            }
+
+            .dot-nav button {
+                padding: 8px;
+            }
+
+            .dot-nav button span:last-child {
+                display: none;
+            }
+
+            .dot-nav button .dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===================== EDIT YOUR CONTENT HERE ===================== -->
+    <!-- Search for "CONFIG" further down in the <script> to personalize:
+       her name, your name, photo, video, background song and the letter text.
+       IMPORTANT: photo/video/song files must sit in the SAME FOLDER as this
+       HTML file, and this file must be opened directly in a browser (not
+       previewed inside a chat panel) for local files to load. -->
+
+    <div id="petals"></div>
+
+    <div class="brand"><span class="heart">♥</span><span id="brandName">Always Yours</span></div>
+
+    <button class="sound-toggle" id="soundToggle" aria-label="Mute or unmute music">
+        <svg id="soundIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 9v6h4l5 5V4L8 9H4z" />
+        </svg>
+    </button>
+
+    <audio id="audio" loop preload="auto"></audio>
+
+    <div id="viewport">
+        <div id="pages">
+
+            <!-- PAGE 0 — HOME -->
+            <section class="page">
+                <div class="page-inner">
+                    <div class="eyebrow">Happy Girlfriend Day</div>
+                    <h1 class="home-title">To My <span class="home-name" id="homeName">Love</span></h1>
+                    <div class="divider"><span></span><span class="diamond"></span><span></span></div>
+                    <p class="script">a little world made just for you</p>
+                    <button class="cta" data-goto="1">Begin</button>
+                </div>
+            </section>
+
+            <!-- PAGE 1 — PHOTO -->
+            <section class="page">
+                <div class="page-inner">
+                    <div class="eyebrow">Our Favorite Frame</div>
+                    <div class="photo-frame" id="photoFrame"></div>
+                    <p class="script" id="photoCaption">the best part of my everyday</p>
+                </div>
+            </section>
+
+            <!-- PAGE 2 — REASONS -->
+            <section class="page">
+                <div class="page-inner" style="max-width:760px;">
+                    <div class="eyebrow">Just a Few of Many</div>
+                    <h2 style="font-size:clamp(1.8rem,4vw,2.6rem); font-style:italic;">Reasons I Love You</h2>
+                    <div class="divider"><span></span><span class="diamond"></span><span></span></div>
+                    <div class="cards-grid" id="cardsGrid"></div>
+                </div>
+            </section>
+
+            <!-- PAGE 3 — VIDEO -->
+            <section class="page">
+                <div class="page-inner">
+                    <div class="eyebrow">A Little Something Extra</div>
+                    <div class="video-frame" id="videoFrame"></div>
+                    <p class="script" id="videoCaption">press play, just for you</p>
+                </div>
+            </section>
+
+            <!-- PAGE 4 — LETTER -->
+            <section class="page">
+                <div class="page-inner">
+                    <div class="eyebrow">One Last Thing</div>
+                    <div class="envelope-wrap">
+                        <div class="envelope" id="envelope">
+                            <div class="flap"></div>
+                            <div class="seal">♥</div>
+                        </div>
+                        <div class="letter-hint">tap the envelope to open</div>
+                    </div>
+                    <div class="letter-paper" id="letterPaper">
+                        <div id="letterBody"></div>
+                        <div class="letter-sign" id="letterSign">Forever yours</div>
+                    </div>
+                    <button class="love-btn" id="loveBtn">Send More Love</button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <button class="arrow prev disabled" id="prevBtn" aria-label="Previous page">‹</button>
+    <button class="arrow next" id="nextBtn" aria-label="Next page">›</button>
+    <div class="dot-nav" id="dotNav"></div>
+    <div id="burst"></div>
+
+    <script>
+        /* ============================================================
+           CONFIG — EDIT EVERYTHING HERE.
+           ============================================================ */
+        const CONFIG = {
+            herName: "Dr. Anuradha",
+            yourName: "Forever yours, Saurabh",
+
+            photoSrc: "img.png",      // must be in the SAME folder as this html file
+
+            videoSrc: "amor.mp4",              // e.g. "video.mp4" — same folder as this html file
+            videoCaption: "press play, just for you",
+
+            songSrc: "song.mp3",       // must be in the SAME folder as this html file — plays automatically on open, on loop
+
+            reasons: [
+                "The way you laugh at your own jokes before you even finish them.",
+                "You make ordinary days feel like the best part of my week.",
+                "Your hugs feel like coming home.",
+                "You remember the little things I forget I even said.",
+                "The way your eyes light up when you talk about what you love.",
+                "You're my favorite person to do absolutely nothing with.",
+                "You believe in me even on days I don't believe in myself.",
+                "Your kindness, even to people who don't deserve it.",
+                "The way you say my name.",
+                "Simply put — you. All of you."
+            ],
+
+            letterParagraphs: [
+                "There isn't a single perfect way to say this, so I'll just say it simply: today is about you, and every reason I built this page is because you make ordinary life feel extraordinary.",
+                "Thank you for your patience, your warmth, and the quiet, steady way you make everything better just by being in it.",
+                "Happy Girlfriend Day. Here's to many more pages of us, still being written."
+            ]
+        };
+        /* ============================================================
+           End of editable section.
+           ============================================================ */
+
+        document.getElementById('brandName').textContent = CONFIG.herName;
+        document.getElementById('homeName').textContent = CONFIG.herName;
+
+        // ---------- Photo ----------
+        const photoFrame = document.getElementById('photoFrame');
+        function showPhotoPlaceholder() {
+            photoFrame.innerHTML = `
+    <div class="photo-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+        <rect x="3" y="6" width="18" height="14" rx="2"></rect>
+        <circle cx="12" cy="13" r="3.4"></circle>
+        <path d="M8 6l1.4-2h5.2L16 6"></path>
+      </svg>
+      <div>Add her photo here</div>
+      <div class="small">Set CONFIG.photoSrc — file must sit next to this HTML file</div>
+    </div>`;
+        }
+        if (CONFIG.photoSrc) {
+            photoFrame.innerHTML = `<img src="${CONFIG.photoSrc}" alt="${CONFIG.herName}">`;
+            photoFrame.querySelector('img').addEventListener('error', showPhotoPlaceholder);
+        } else {
+            showPhotoPlaceholder();
+        }
+
+        // ---------- Video ----------
+        let videoEl = null;
+        let wasPlayingBeforeVideo = false;
+        const videoFrame = document.getElementById('videoFrame');
+        function showVideoPlaceholder() {
+            videoFrame.innerHTML = `
+    <div class="video-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M10 8.3l6 3.7-6 3.7z" fill="currentColor" stroke="none"></path>
+      </svg>
+      <div>Add a video here</div>
+      <div class="small">Set CONFIG.videoSrc — file must sit next to this HTML file</div>
+    </div>`;
+        }
+        if (CONFIG.videoSrc) {
+            videoFrame.innerHTML = `<video src="${CONFIG.videoSrc}" controls playsinline preload="metadata"></video>`;
+            videoEl = videoFrame.querySelector('video');
+            videoEl.addEventListener('error', showVideoPlaceholder);
+            videoEl.addEventListener('play', () => {
+                if (!audio.paused) { wasPlayingBeforeVideo = true; audio.pause(); }
+            });
+            const resumeSongAfterVideo = () => {
+                if (wasPlayingBeforeVideo) { audio.play().catch(() => { }); wasPlayingBeforeVideo = false; }
+            };
+            videoEl.addEventListener('pause', resumeSongAfterVideo);
+            videoEl.addEventListener('ended', resumeSongAfterVideo);
+        } else {
+            showVideoPlaceholder();
+        }
+        document.getElementById('videoCaption').textContent = CONFIG.videoCaption || 'press play, just for you';
+
+        // ---------- Reason cards ----------
+        const grid = document.getElementById('cardsGrid');
+        CONFIG.reasons.forEach((reason, i) => {
+            const card = document.createElement('div');
+            card.className = 'flip-card';
+            card.innerHTML = `
+    <div class="card-inner">
+      <div class="card-face card-front">
+        <div class="num">${String(i + 1).padStart(2, '0')}</div>
+        <div class="heart-icon">♥</div>
+      </div>
+      <div class="card-face card-back">${reason}</div>
+    </div>`;
+            card.addEventListener('click', () => card.classList.toggle('flipped'));
+            grid.appendChild(card);
+        });
+
+        // ---------- Background song: autoplay + loop, no button needed ----------
+        const audio = document.getElementById('audio');
+        const soundToggle = document.getElementById('soundToggle');
+        const soundIcon = document.getElementById('soundIcon');
+        const ICON_ON = '<path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.5 12a4.5 4.5 0 0 0-2-3.7v7.4a4.5 4.5 0 0 0 2-3.7z"/>';
+        const ICON_OFF = '<path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M19 9l-4 4m0-4l4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
+
+        if (CONFIG.songSrc) { audio.src = CONFIG.songSrc; }
+
+        function tryPlay() {
+            if (!CONFIG.songSrc) return;
+            audio.play().catch(() => { /* blocked until a user gesture happens — handled below */ });
+        }
+        tryPlay();
+
+        // Most browsers block autoplay with sound until the visitor interacts.
+        // The moment they tap/click anywhere (e.g. the "Begin" button), start it.
+        function unlockAudioOnce() {
+            tryPlay();
+            document.removeEventListener('click', unlockAudioOnce);
+            document.removeEventListener('touchstart', unlockAudioOnce);
+            document.removeEventListener('keydown', unlockAudioOnce);
+        }
+        document.addEventListener('click', unlockAudioOnce, { once: true });
+        document.addEventListener('touchstart', unlockAudioOnce, { once: true, passive: true });
+        document.addEventListener('keydown', unlockAudioOnce, { once: true });
+
+        soundToggle.addEventListener('click', () => {
+            audio.muted = !audio.muted;
+            soundIcon.innerHTML = audio.muted ? ICON_OFF : ICON_ON;
+        });
+
+        // ---------- Letter ----------
+        const letterBody = document.getElementById('letterBody');
+        CONFIG.letterParagraphs.forEach(text => {
+            const p = document.createElement('p');
+            p.textContent = text;
+            letterBody.appendChild(p);
+        });
+        document.getElementById('letterSign').textContent = CONFIG.yourName;
+
+        const envelope = document.getElementById('envelope');
+        const letterPaper = document.getElementById('letterPaper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('open');
+            letterPaper.classList.toggle('show');
+        });
+
+        // ---------- Heart burst ----------
+        document.getElementById('loveBtn').addEventListener('click', (e) => {
+            const burst = document.getElementById('burst');
+            const rect = e.target.getBoundingClientRect();
+            for (let i = 0; i < 18; i++) {
+                const h = document.createElement('div');
+                h.className = 'heart-pop';
+                h.textContent = '♥';
+                h.style.left = (rect.left + rect.width / 2 + (Math.random() * 160 - 80)) + 'px';
+                h.style.top = (rect.top - 10) + 'px';
+                h.style.animationDelay = (Math.random() * .3) + 's';
+                burst.appendChild(h);
+                setTimeout(() => h.remove(), 2000);
+            }
+        });
+
+        // ---------- Petals ----------
+        const petalsEl = document.getElementById('petals');
+        for (let i = 0; i < 16; i++) {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = p.style.height = (8 + Math.random() * 8) + 'px';
+            p.style.animationDuration = (9 + Math.random() * 8) + 's';
+            p.style.animationDelay = (Math.random() * 10) + 's';
+            petalsEl.appendChild(p);
+        }
+
+        // ---------- Page navigation ----------
+        const pages = document.querySelectorAll('.page');
+        const pagesTrack = document.getElementById('pages');
+        const dotNav = document.getElementById('dotNav');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const viewportEl = document.getElementById('viewport');
+        const labels = ['Home', 'Us', 'Reasons', 'Video', 'Letter'];
+        let current = 0;
+
+        labels.forEach((label, i) => {
+            const btn = document.createElement('button');
+            btn.innerHTML = `<span class="dot"></span><span>${label}</span>`;
+            btn.addEventListener('click', () => goTo(i));
+            dotNav.appendChild(btn);
+        });
+
+        function goTo(i) {
+            if (videoEl && !videoEl.paused) { videoEl.pause(); }
+            current = Math.max(0, Math.min(pages.length - 1, i));
+            pagesTrack.style.transform = `translateX(-${current * 100}vw)`;
+            [...dotNav.children].forEach((b, idx) => b.classList.toggle('active', idx === current));
+            prevBtn.classList.toggle('disabled', current === 0);
+            nextBtn.classList.toggle('disabled', current === pages.length - 1);
+        }
+
+        document.querySelectorAll('[data-goto]').forEach(btn => {
+            btn.addEventListener('click', () => goTo(parseInt(btn.dataset.goto)));
+        });
+        prevBtn.addEventListener('click', () => goTo(current - 1));
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') goTo(current + 1);
+            if (e.key === 'ArrowLeft') goTo(current - 1);
+        });
+
+        // ---------- Touch swipe (mobile) ----------
+        let touchStartX = 0, touchStartY = 0;
+        viewportEl.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        viewportEl.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+                goTo(current + (dx < 0 ? 1 : -1));
+            }
+        }, { passive: true });
+
+        goTo(0);
+    </script>
+</body>
+
+</html>
