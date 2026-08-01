@@ -813,6 +813,8 @@
         </div>
     </div>
 
+
+
     <button class="arrow prev disabled" id="prevBtn" aria-label="Previous page">‹</button>
     <button class="arrow next" id="nextBtn" aria-label="Next page">›</button>
     <div class="dot-nav" id="dotNav"></div>
@@ -929,35 +931,49 @@
             grid.appendChild(card);
         });
 
-        // ---------- Background song: autoplay + loop, no button needed ----------
+        // ---------- Background song ----------
         const audio = document.getElementById('audio');
         const soundToggle = document.getElementById('soundToggle');
         const soundIcon = document.getElementById('soundIcon');
+
         const ICON_ON = '<path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.5 12a4.5 4.5 0 0 0-2-3.7v7.4a4.5 4.5 0 0 0 2-3.7z"/>';
         const ICON_OFF = '<path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M19 9l-4 4m0-4l4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
 
-        if (CONFIG.songSrc) { audio.src = CONFIG.songSrc; }
-
-        function tryPlay() {
-            if (!CONFIG.songSrc) return;
-            audio.play().catch(() => { /* blocked until a user gesture happens — handled below */ });
+        if (CONFIG.songSrc) {
+            audio.src = CONFIG.songSrc;
+            audio.loop = true;
+            audio.preload = "auto";
+            audio.load();
         }
-        tryPlay();
 
-        // Most browsers block autoplay with sound until the visitor interacts.
-        // The moment they tap/click anywhere (e.g. the "Begin" button), start it.
-        function unlockAudioOnce() {
-            tryPlay();
-            document.removeEventListener('click', unlockAudioOnce);
-            document.removeEventListener('touchstart', unlockAudioOnce);
-            document.removeEventListener('keydown', unlockAudioOnce);
+        let audioStarted = false;
+
+        async function startAudio() {
+            if (audioStarted || !CONFIG.songSrc) return;
+
+            try {
+                audio.muted = false;
+                audio.volume = 1;
+                await audio.play();
+                audioStarted = true;
+                soundIcon.innerHTML = ICON_ON;
+                console.log("Audio Started");
+            } catch (err) {
+                console.error("Audio play failed:", err);
+            }
         }
-        document.addEventListener('click', unlockAudioOnce, { once: true });
-        document.addEventListener('touchstart', unlockAudioOnce, { once: true, passive: true });
-        document.addEventListener('pointerdown', unlockAudioOnce, { once: true });
-        document.addEventListener('keydown', unlockAudioOnce, { once: true });
 
-        soundToggle.addEventListener('click', () => {
+        // Start music on first interaction anywhere
+        document.addEventListener("pointerdown", startAudio, { once: true });
+        document.addEventListener("touchstart", startAudio, { once: true, passive: true });
+        document.addEventListener("click", startAudio, { once: true });
+
+        // Mute / Unmute
+        soundToggle.addEventListener("click", async () => {
+            if (!audioStarted) {
+                await startAudio();
+            }
+
             audio.muted = !audio.muted;
             soundIcon.innerHTML = audio.muted ? ICON_OFF : ICON_ON;
         });
